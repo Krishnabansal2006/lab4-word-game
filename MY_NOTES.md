@@ -74,3 +74,41 @@ What transitions are forbidden?
 Once won or lost, can no further guesses modify state?
 Can status ever go from won/lost back to playing? (usually no)
 
+# App Bugs 
+1. Input validation bugs
+- What happens if input is empty, longer than one character, a number, or punctuation?
+- Do you normalize case before processing, so A and a behave the same?
+
+2. Repeated guess bugs
+- If a user guesses the same letter again, do you accidentally penalize them twice?
+- Is repeated input clearly rejected or ignored in a consistent way?
+
+3. Wrong guess counter bugs
+- Do you increment wrong guesses only when the letter is not in the secret word?
+- Can wrong guesses ever exceed the max due to multiple updates in one turn?
+
+4. Win condition bugs
+- Do you check win using unique letters in the word, not total word length?
+- For words with repeated letters, does one correct guess reveal all occurrences?
+
+5. Lose condition and off-by-one bugs
+- Do you lose exactly at max wrong guesses, not one turn early or late?
+- Is remaining attempts computed correctly every time?
+
+6. State transition bugs
+- After won or lost, can the game still accept guesses and mutate state?
+- Can status accidentally return from won or lost back to playing?
+
+7. Display/progress bugs
+- Is progress always the same length as the secret word?
+- Are only guessed letters revealed, with unguessed letters masked reliably?
+
+9. Word handling edge cases
+- How do you handle spaces, hyphens, or apostrophes in secret words?
+- Do non-letter characters auto-reveal or break your logic?
+
+11. Random word source bugs
+- Can the word list be empty?
+- Do trailing newline characters from file reads leak into the secret word?
+
+
