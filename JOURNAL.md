@@ -1,6 +1,50 @@
 # This JOURNAL.md file gets automatically updated by the journal-logger agent after every interaction with CoPilot. It serves as a comprehensive log of all prompts, responses, changes made, and reflections during the development process. Each entry is formatted consistently for easy reading and is listed in reverse chronological order, with the most recent interactions at the top.
 
 **New Interaction**
+**Date**: 03-09-2026 11:58
+**User**: krishna.bansal@epita.fr
+**Prompt**: Update the journal with the recent interaction
+**CoPilot Mode**: Agent
+**CoPilot Model**: GPT-5.3-Codex
+**Changes Made**: Reconciled recent conversation turns against JOURNAL.md, backfilled missing Hangman Ask interactions and Socratic guidance summaries, and prepended this newest journal-update entry.
+**Reasons for Changes**: The user requested reconciliation-first journaling with reverse-chronological prepending and duplicate avoidance.
+**Context**: Reconciliation scope was limited to the top section of JOURNAL.md; no matching prompt+mode+nearby-time duplicates were found for these added entries.
+**My Observations**:
+
+**New Interaction**
+**Date**: 03-09-2026 11:58
+**User**: krishna.bansal@epita.fr
+**Prompt**: In Hangman, what rules or invariants should always hold during gameplay?
+**CoPilot Mode**: Ask
+**CoPilot Model**: GPT-5.3-Codex
+**Changes Made**: Provided Socratic guidance identifying core Hangman invariants (word-mask consistency, attempts bounds, guessed-letter uniqueness, and win/lose exclusivity) and encouraged validation through checkpoints.
+**Reasons for Changes**: The user asked for conceptual gameplay rules; guidance emphasized reasoning and correctness checks rather than direct implementation.
+**Context**: Backfilled during reconciliation because this recent Ask-style interaction was missing from the journal window.
+**My Observations**:
+
+**New Interaction**
+**Date**: 03-09-2026 11:58
+**User**: krishna.bansal@epita.fr
+**Prompt**: What variables should I track for Hangman state?
+**CoPilot Mode**: Ask
+**CoPilot Model**: GPT-5.3-Codex
+**Changes Made**: Provided Socratic guidance on modeling Hangman state variables (secret word, revealed pattern, guessed letters, remaining attempts, and game status) with prompts to justify each variable.
+**Reasons for Changes**: The user requested design guidance on state representation; response focused on building understanding before coding.
+**Context**: Backfilled during reconciliation because this recent Ask-style interaction was missing from the journal window.
+**My Observations**:
+
+**New Interaction**
+**Date**: 03-09-2026 11:58
+**User**: krishna.bansal@epita.fr
+**Prompt**: What should the Hangman game state include?
+**CoPilot Mode**: Ask
+**CoPilot Model**: GPT-5.3-Codex
+**Changes Made**: Provided Socratic-style guidance on defining the minimum complete Hangman game state and suggested tracing state transitions after each guess.
+**Reasons for Changes**: The user asked a conceptual setup question; response prioritized understanding state modeling fundamentals.
+**Context**: Backfilled during reconciliation because this recent Ask-style interaction was missing from the journal window.
+**My Observations**:
+
+**New Interaction**
 **Date**: 02-26-2026 16:05
 **User**: krishna.bansal@epita.fr
 **Prompt**: Implement a recursive Fibonacci function in main.py
