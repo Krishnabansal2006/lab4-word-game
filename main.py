@@ -1,4 +1,6 @@
 import random
+import time
+
 
 WORDS = ["apple", "banana", "grape", "mango", "cherry", "orange", "lemon"]
 MAX_LIVES = 6
@@ -59,6 +61,25 @@ def init_game() -> tuple[str, list[str], int]:
 def get_player_guess() -> str:
     return input("Guess a letter: ").strip().lower()
 
+def get_computer_guess(guessed_letters: list[str]) -> str:
+    remaining = [l for l in "abcdefghijklmnopqrstuvwxyz" if l not in guessed_letters]
+    return random.choice(remaining)
+
+
+def auto_play_game() -> None:
+    secret_word, guessed_letters, lives = init_game()
+    while not check_win(secret_word, guessed_letters) and not check_loss(lives):
+        display_board(secret_word, guessed_letters, lives)
+        guess = get_computer_guess(guessed_letters)
+        print(f"Computer guesses: {guess}")
+        guessed_letters, lives = update_game_state(secret_word, guessed_letters, guess, lives)
+    display_board(secret_word, guessed_letters, lives)
+    if check_win(secret_word, guessed_letters):
+        print("Computer wins!")
+    else:
+        print(f"Computer lost! The word was {secret_word}")
+
+
 
 def display_board(secret_word: str, guessed_letters: list[str], lives: int) -> None:
     print(f"\nWord: {get_masked_word(secret_word, guessed_letters)}")
@@ -67,6 +88,7 @@ def display_board(secret_word: str, guessed_letters: list[str], lives: int) -> N
 
 
 def play_game() -> None:
+    mode = input("Play or autoplay? (play/auto): ").strip().lower()
     replay_choice = "y"
 
     while replay_choice == "y":
@@ -74,16 +96,23 @@ def play_game() -> None:
 
         while not check_win(secret_word, guessed_letters) and not check_loss(lives):
             display_board(secret_word, guessed_letters, lives)
-            guess = get_player_guess()
+            if mode == "auto":
+                guess = get_computer_guess(guessed_letters)
+                print(f"Computer guesses: {guess}")
+                time.sleep(0.5)
+            else:
+                guess = get_player_guess()
             guessed_letters, lives = update_game_state(secret_word, guessed_letters, guess, lives)
 
         display_board(secret_word, guessed_letters, lives)
         if check_win(secret_word, guessed_letters):
-            print("You win!")
+            print("Computer wins!" if mode == "auto" else "You win!")
         else:
             print(f"You lost! The word was: {secret_word}")
 
         replay_choice = input("Play again? (y/n): ").strip().lower()
+        if replay_choice == "y":
+            mode = input("Play or autoplay? (play/auto): ").strip().lower()
 
 
 if __name__ == "__main__":

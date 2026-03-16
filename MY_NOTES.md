@@ -111,4 +111,11 @@ Can status ever go from won/lost back to playing? (usually no)
 - Can the word list be empty?
 - Do trailing newline characters from file reads leak into the secret word?
 
+# Auto Play 
 
+- When the game starts, ask the user to play or watch the computer autoplay.
+- In autoplay, the computer guesses letters using frequency order (etaoinshrdlcumwfgypbvkjxqz).
+- It never repeats a letter. After autoplay ends, ask again.
+
+- New function needed: get_computer_guess(guessed_letters) — picks next unguessed letter.
+- Reuses all existing functions, just swaps get_player_guess for get_computer_guess.
